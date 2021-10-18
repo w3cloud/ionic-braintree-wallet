@@ -14,6 +14,7 @@ npx cap sync
 <docgen-index>
 
 * [`echo(...)`](#echo)
+* [`mobileWalletSupported()`](#mobilewalletsupported)
 
 </docgen-index>
 
@@ -29,6 +30,17 @@ echo(options: { value: string; }) => any
 | Param         | Type                            |
 | ------------- | ------------------------------- |
 | **`options`** | <code>{ value: string; }</code> |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### mobileWalletSupported()
+
+```typescript
+mobileWalletSupported() => any
+```
 
 **Returns:** <code>any</code>
 

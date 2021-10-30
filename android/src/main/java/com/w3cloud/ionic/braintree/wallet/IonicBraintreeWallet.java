@@ -8,9 +8,5 @@ public class IonicBraintreeWallet {
         Log.i("Echo", value);
         return value;
     }
-    public boolean mobileWalletSupported() {
-        Log.i("Echo", value);
-        return false;
-    }
 
 }

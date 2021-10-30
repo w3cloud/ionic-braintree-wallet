@@ -14,7 +14,9 @@ npx cap sync
 <docgen-index>
 
 * [`echo(...)`](#echo)
-* [`mobileWalletSupported()`](#mobilewalletsupported)
+* [`canMakePayments(...)`](#canmakepayments)
+* [`mobilePay(...)`](#mobilepay)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -36,14 +38,51 @@ echo(options: { value: string; }) => any
 --------------------
 
 
-### mobileWalletSupported()
+### canMakePayments(...)
 
 ```typescript
-mobileWalletSupported() => any
+canMakePayments(options: { value: string; }) => any
 ```
+
+| Param         | Type                            |
+| ------------- | ------------------------------- |
+| **`options`** | <code>{ value: string; }</code> |
 
 **Returns:** <code>any</code>
 
 --------------------
+
+
+### mobilePay(...)
+
+```typescript
+mobilePay(options: MobilePayOptions) => any
+```
+
+| Param         | Type                                                          |
+| ------------- | ------------------------------------------------------------- |
+| **`options`** | <code><a href="#mobilepayoptions">MobilePayOptions</a></code> |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### Interfaces
+
+
+#### MobilePayOptions
+
+| Prop                  | Type                |
+| --------------------- | ------------------- |
+| **`btAuthorization`** | <code>string</code> |
+
+
+#### MobilePayResult
+
+| Prop         | Type                |
+| ------------ | ------------------- |
+| **`errMsg`** | <code>string</code> |
+| **`nonce`**  | <code>string</code> |
 
 </docgen-api>

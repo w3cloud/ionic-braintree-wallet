@@ -1,3 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.w3cloud.ionic.braintree.wallet">
+    <application>
+        <activity android:name=".GooglePayActivity"
+            android:launchMode="singleTask">
+        </activity>
+    </application>
 </manifest>

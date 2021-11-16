@@ -13,7 +13,6 @@ npx cap sync
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
 * [`canMakePayments(...)`](#canmakepayments)
 * [`mobilePay(...)`](#mobilepay)
 * [Interfaces](#interfaces)
@@ -23,30 +22,15 @@ npx cap sync
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
 
-### echo(...)
-
-```typescript
-echo(options: { value: string; }) => any
-```
-
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
-
-**Returns:** <code>any</code>
-
---------------------
-
-
 ### canMakePayments(...)
 
 ```typescript
-canMakePayments(options: { value: string; }) => any
+canMakePayments(options: { btAuthorization: string; }) => any
 ```
 
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
+| Param         | Type                                      |
+| ------------- | ----------------------------------------- |
+| **`options`** | <code>{ btAuthorization: string; }</code> |
 
 **Returns:** <code>any</code>
 
@@ -73,16 +57,29 @@ mobilePay(options: MobilePayOptions) => any
 
 #### MobilePayOptions
 
-| Prop                  | Type                |
-| --------------------- | ------------------- |
-| **`btAuthorization`** | <code>string</code> |
+| Prop                      | Type                |
+| ------------------------- | ------------------- |
+| **`btAuthorization`**     | <code>string</code> |
+| **`merchantId`**          | <code>string</code> |
+| **`paymentSummaryItems`** | <code>{}</code>     |
+
+
+#### PaymentSummaryItem
+
+| Prop         | Type                |
+| ------------ | ------------------- |
+| **`label`**  | <code>string</code> |
+| **`amount`** | <code>number</code> |
 
 
 #### MobilePayResult
 
-| Prop         | Type                |
-| ------------ | ------------------- |
-| **`errMsg`** | <code>string</code> |
-| **`nonce`**  | <code>string</code> |
+| Prop                   | Type                |
+| ---------------------- | ------------------- |
+| **`nonce`**            | <code>string</code> |
+| **`contactFirstName`** | <code>string</code> |
+| **`contactLastName`**  | <code>string</code> |
+| **`contactPhone`**     | <code>string</code> |
+| **`contactEmail`**     | <code>string</code> |
 
 </docgen-api>

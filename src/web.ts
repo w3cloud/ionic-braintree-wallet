@@ -8,11 +8,15 @@ export class IonicBraintreeWalletWeb
   async mobilePay(options: MobilePayOptions): Promise<MobilePayResult> {
     console.log('ECHO', options);
     let result: MobilePayResult={
-      errMsg:'Not Implemented'
+      nonce:'Not Implemented', 
+      contactFirstName: 'NA',
+      contactLastName: 'NA',
+      contactPhone: 'NA',
+      contactEmail: 'NA'
     }
     return result;
   }
-  async canMakePayments(options: { value: string }): Promise<{ result: boolean }> {
+  async canMakePayments(options: { btAuthorization: string }): Promise<{ result: boolean }> {
     console.log('ECHO', options);
     return { result: false };
   }

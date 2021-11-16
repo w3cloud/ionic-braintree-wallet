@@ -1,9 +1,10 @@
 import Foundation
+import Capacitor
 import PassKit
 import Braintree
 enum MobilePayError: Error {
     case braintreeAuthFailed
-    case applePayClientIsNull
+    case paymentRequestError
 }
 
 @objc public class IonicBraintreeWallet: NSObject {
@@ -24,23 +25,31 @@ enum MobilePayError: Error {
          }
     }
     
-    @objc public func mobilePay(_ btAuthorization: String)throws-> String {
+    @objc public func mobilePay(_ btAuthorization: String, pkPaymentSummaryItems: [PKPaymentSummaryItem], call: CAPPluginCall)-> String {
         var braintreeClient: BTAPIClient?
 
         // BTAPIClient can be initialized in a couple different ways, here's one example:
         braintreeClient = BTAPIClient(authorization: btAuthorization)
-        if braintreeClient == nil{
-            throw MobilePayError.braintreeAuthFailed
-            
-        }
         
         let applePayClient = BTApplePayClient(apiClient: braintreeClient!)
-        if (applePayClient == nil){
-            throw MobilePayError.applePayClientIsNull
+        
+        applePayClient.paymentRequest { (paymentRequest, error) in
+            guard paymentRequest != nil else {
+                   call.resolve([
+                    "errMsg": "PaymentRequest Error" + error!.localizedDescription,                       "nonce": ""
+                   ])
+                   return
+               }
+            paymentRequest?.requiredBillingContactFields = [.postalAddress]
+            
+            paymentRequest?.merchantCapabilities = .capability3DS
+            
+            paymentRequest?.paymentSummaryItems = pkPaymentSummaryItems
+ 
+            
+            
         }
-        
-        
-        
+
         return "Great"
 
     }

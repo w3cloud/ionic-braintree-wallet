@@ -29,16 +29,16 @@ public class IonicBraintreeWalletPlugin: CAPPlugin, PKPaymentAuthorizationViewCo
         print(payment.billingContact?.name ?? "Not Available")
         self.btApplePayClient?.tokenizeApplePay(payment){ (nonce, error) in
             
-            print("AP Nonce: ", nonce?.nonce!, error!)
+            print("AP Nonce: ", nonce?.nonce)
             if nonce != nil {
                 
                 self.mobilePayCall?.resolve(
                     [
-                        "nonce":nonce?.nonce!,
+                        "nonce":nonce?.nonce,
                         "contactFirstName": (payment.shippingContact?.name?.givenName)!,
                         "contactLastName":
                             (payment.shippingContact?.name?.familyName)!,
-                        "contactPhone": payment.shippingContact?.phoneNumber?.stringValue!,
+                        "contactPhone": payment.shippingContact?.phoneNumber?.stringValue,
                         "contactEmail": payment.shippingContact?.emailAddress!
                     ])
                 

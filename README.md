@@ -25,14 +25,14 @@ npx cap sync
 ### canMakePayments(...)
 
 ```typescript
-canMakePayments(options: { btAuthorization: string; }) => any
+canMakePayments(options: { btAuthorization: string; }) => Promise<{ result: boolean; }>
 ```
 
 | Param         | Type                                      |
 | ------------- | ----------------------------------------- |
 | **`options`** | <code>{ btAuthorization: string; }</code> |
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;{ result: boolean; }&gt;</code>
 
 --------------------
 
@@ -40,36 +40,19 @@ canMakePayments(options: { btAuthorization: string; }) => any
 ### mobilePay(...)
 
 ```typescript
-mobilePay(options: MobilePayOptions) => any
+mobilePay(options: MobilePayOptions) => Promise<MobilePayResult>
 ```
 
 | Param         | Type                                                          |
 | ------------- | ------------------------------------------------------------- |
 | **`options`** | <code><a href="#mobilepayoptions">MobilePayOptions</a></code> |
 
-**Returns:** <code>any</code>
+**Returns:** <code>Promise&lt;<a href="#mobilepayresult">MobilePayResult</a>&gt;</code>
 
 --------------------
 
 
 ### Interfaces
-
-
-#### MobilePayOptions
-
-| Prop                      | Type                |
-| ------------------------- | ------------------- |
-| **`btAuthorization`**     | <code>string</code> |
-| **`merchantId`**          | <code>string</code> |
-| **`paymentSummaryItems`** | <code>{}</code>     |
-
-
-#### PaymentSummaryItem
-
-| Prop         | Type                |
-| ------------ | ------------------- |
-| **`label`**  | <code>string</code> |
-| **`amount`** | <code>number</code> |
 
 
 #### MobilePayResult
@@ -81,5 +64,22 @@ mobilePay(options: MobilePayOptions) => any
 | **`contactLastName`**  | <code>string</code> |
 | **`contactPhone`**     | <code>string</code> |
 | **`contactEmail`**     | <code>string</code> |
+
+
+#### MobilePayOptions
+
+| Prop                      | Type                              |
+| ------------------------- | --------------------------------- |
+| **`btAuthorization`**     | <code>string</code>               |
+| **`merchantId`**          | <code>string</code>               |
+| **`paymentSummaryItems`** | <code>PaymentSummaryItem[]</code> |
+
+
+#### PaymentSummaryItem
+
+| Prop         | Type                |
+| ------------ | ------------------- |
+| **`label`**  | <code>string</code> |
+| **`amount`** | <code>number</code> |
 
 </docgen-api>

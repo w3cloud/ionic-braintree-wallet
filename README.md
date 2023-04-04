@@ -2,7 +2,16 @@
 
 Ionic Capacitor Plugin to show native mobile wallet dialogs like ApplePay, Google pay, then get the nonce using the Braintree native api.
 
-## Install
+## Building
+
+ * Clone this project into your local folder.
+ * From command prompt go to the project folder.
+ * Build the project: npm run build
+
+
+### Install
+
+Go to your project that uses this package.
 
 ```bash
 npm install ionic-braintree-wallet
